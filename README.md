@@ -46,6 +46,19 @@ module.exports = {
 };
 ```
 
+Once the plugin is installed, you can use `require.context` just like
+you would with Webpack.  An example usage with Stimulus.js:
+
+```javascript
+// src/application.js
+import { Application } from "stimulus"
+import { definitionsFromContext } from "stimulus/webpack-helpers"
+
+const application = Application.start()
+const context = require.context("./controllers", true, /\.js$/)
+application.load(definitionsFromContext(context))
+```
+
 ## Plugin Options
 
 | Name     |    Type    | Description |

@@ -1,6 +1,8 @@
 {
   "name": "@rubys/snowpack-plugin-require-context",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "description": "require-context plugin for Snowpack",
+  "author": "Sam Ruby <rubys@intertwingly.net>",
   "license": "MIT",
   "dependencies": {
     "acorn": "^8.0.5",
@@ -9,7 +11,11 @@
     "astring": "^1.6.2"
   },
   "main": "plugin.js",
-  "scripts": {
-    "publish": "npm publish --access public"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rubys/snowpack-plugin-require-context/"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
