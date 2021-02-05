@@ -1,0 +1,15 @@
+{
+  "name": "@rubys/snowpack-plugin-require-context",
+  "version": "0.0.2",
+  "license": "MIT",
+  "dependencies": {
+    "acorn": "^8.0.5",
+    "acorn-stage3": "^4.0.0",
+    "acorn-walk": "^8.0.2",
+    "astring": "^1.6.2"
+  },
+  "main": "plugin.js",
+  "scripts": {
+    "publish": "npm publish --access public"
+  }
+}
