@@ -24,9 +24,9 @@ let parser = acorn.Parser.extend(stage3);
 async function require_context(filePath) {
   let source = await fsp.readFile(filePath, 'utf8');
 
-  // If there are no occurences of require.context, remove source from
+  // If there are no occurences of "require.context(", remove source from
   // dirWatchers and return null
-  if (!source.includes('require.context')) {
+  if (!/\brequire\s*\.\s*context\s*\(/.test(source)) {
     delete dirWatchers[filePath];
     return null;
   }
