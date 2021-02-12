@@ -1,9 +1,12 @@
 {
   "name": "@rubys/snowpack-plugin-require-context",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "require-context plugin for Snowpack",
   "author": "Sam Ruby <rubys@intertwingly.net>",
   "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "dependencies": {
     "acorn": "^8.0.5",
     "acorn-stage3": "^4.0.0",

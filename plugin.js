@@ -67,7 +67,7 @@ async function require_context(filePath) {
     // extract arguments
     let args = node.arguments;
     let directory = path.resolve(base, args[0].value);
-    let recurse = args[1]?.value;
+    let recurse = args[1] && args[1].value;
     let regExp = args[2] && new RegExp(args[2].regex.pattern, args[2].regex.flags);
 
     // add directory to the list to be watched for changes
