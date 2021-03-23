@@ -103,11 +103,22 @@ async function require_context(filePath) {
         return file
       });
 
-    // compute module name from basename of file, converting from dashes
-    // to snakecase.
-    let modules = files.map(file => file.split('/').pop().split('.')[0].
-      replace(/^\w/, c => c.toUpperCase()).
-      replace(/[-_]\w/g, c => c[1].toUpperCase()).replace(/\W/g, '$'));
+    // keys are relative to the directory, not the base
+    let keys = files.map(file =>
+      path.relative(directory, path.resolve(base, file)));
+
+    // compute module name from keys converting from dashes to snakecase.
+    let modules = keys.map(key => {
+      // remove extension
+      let parts = key.split('/');
+      parts.push(parts.pop().split('.')[0]);
+
+      // convert to snakecase, replacing '/' with '_'
+      return parts.map(part => part.
+        replace(/^\w/, c => c.toUpperCase()).
+        replace(/[-_]\w/g, c => c[1].toUpperCase()).replace(/\W/g, '$'))
+        .join('_');
+   });
 
     // add an import for each module to the list of prepends
     files.forEach((file, i) => {
@@ -122,10 +133,6 @@ async function require_context(filePath) {
         source: { type: "Literal", value: file, raw: JSON.stringify(file) }
       })
     });
-
-    // keys are relative to the directory, not the base
-    let keys = files.map(file =>
-      path.relative(directory, path.resolve(base, file)));
 
     // build a list of files
     let contextKeys = {
