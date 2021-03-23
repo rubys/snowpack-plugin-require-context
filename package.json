@@ -1,6 +1,6 @@
 {
   "name": "@rubys/snowpack-plugin-require-context",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "require-context plugin for Snowpack",
   "author": "Sam Ruby <rubys@intertwingly.net>",
   "license": "MIT",
