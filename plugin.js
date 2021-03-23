@@ -118,7 +118,7 @@ async function require_context(filePath) {
         replace(/^\w/, c => c.toUpperCase()).
         replace(/[-_]\w/g, c => c[1].toUpperCase()).replace(/\W/g, '$'))
         .join('_');
-   });
+    });
 
     // add an import for each module to the list of prepends
     files.forEach((file, i) => {
