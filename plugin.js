@@ -82,7 +82,7 @@ async function require_context(filePath) {
           const res = path.resolve(dir, dirent.name);
 
           if (dirent.isDirectory()) {
-            return (recurse !== false) && getFiles(res);
+            return (recurse !== false) && getFiles(res, recurse, pattern);
           } else {
             return (!pattern || pattern.test(res)) ? res : null
           }
